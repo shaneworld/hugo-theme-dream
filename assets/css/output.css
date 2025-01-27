@@ -3657,7 +3657,7 @@ html {
 }
 
 #TableOfContents {
-  position: sticky;
+  position: relative;
   top: 6rem;
   overflow-y: auto;
   /* 6 + 1 rem */
