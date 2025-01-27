@@ -32,11 +32,25 @@
       {{ end }}
     </section>
 
-    <div class="dropdown dropdown-end sm:hidden">
-      <div tabindex="0" role="button" class="btn btn-ghost btn-square" aria-label="Select an option">
+    <div x-data="{ open: false }" class="dropdown dropdown-end sm:hidden">
+      <div
+            tabindex="0"
+            role="button"
+            class="btn btn-ghost btn-square"
+            aria-label="Select an option"
+            @click="open = !open; $event.stopPropagation()"
+          >
         <ion-icon name="menu" class="text-2xl"></ion-icon>
       </div>
-      <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-md">
+
+      <ul
+            x-show="open"
+            @click.away="open = false"
+            tabindex="0"
+            class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-md"
+            style="display: none;"
+            x-transition
+          >
         {{ partial "navMobileMenu.html" . }}
       </ul>
     </div>
@@ -77,11 +91,11 @@
       {{ partial "renderNavItem.html" . }}
       {{ end }}
 
-      <div class="dropdown dropdown-end dropdown-hover">
-        <div tabindex="0" role="button" class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" aria-label="Select an option">
+      <div x-data="{ open: false }" class="dropdown dropdown-end dropdown-hover">
+        <div tabindex="0" role="button" class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" aria-label="Select an option" @click="open = !open; $event.stopPropagation()">
           <ion-icon class="group-hover:text-primary-content text-xl" name="menu"></ion-icon>
         </div>
-        <ul tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-xl">
+        <ul x-show="open" @click.away="open = false" tabindex="0" class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-xl" style="display: none;" x-transition>
           {{ range $collapseNavItems }}
           {{ partial "renderMobileNavItem.html" . }}
           {{ end }}
