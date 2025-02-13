@@ -30,10 +30,10 @@
 {{ end }}
 
 {{ define "main" }}
-<div class="lg:grid lg:grid-cols-6 gap-4 mt-4 px-4">
+<div class="lg:grid lg:grid-cols-4 gap-4 mt-4 px-4">
   <div class="hidden lg:block"></div>
 
-  <div class="lg:col-span-4">
+  <div class="lg:col-span-2">
     <article class="mx-auto prose prose-quoteless dark:prose-invert" id="dream-single-post-main" itemscope itemtype="http://schema.org/Article">
       {{ template "_internal/schema.html" . }}
 
@@ -69,9 +69,9 @@
       </header>
 
       <section id="dream-single-post-content" itemprop="articleBody">
-        {{ if and .Params.Cover site.Params.showSummaryCoverInPost }}
-        <img src="{{ .Params.Cover }}" alt="{{ .Title }}" />
-        {{ end }}
+        <!--{{ if and .Params.Cover site.Params.showSummaryCoverInPost }}-->
+        <!--<img src="{{ .Params.Cover }}" alt="{{ .Title }}" />-->
+        <!--{{ end }}-->
 
         {{ .Content | emojify }}
       </section>
@@ -115,17 +115,19 @@
     </article>
   </div>
 
-  <div class="hidden lg:flex lg:flex-col lg:items-end">
-    {{ if fileExists "layouts/partials/adsense.html" }}
-    <div class="dream-adsense">
-      {{ partialCached "adsense.html" . }}
-    </div>
-    {{ end }}
-
-    {{ if site.Params.showTableOfContents }}
-      {{ .TableOfContents }}
-    {{ end }}
-  </div>
+  <!--<div class="hidden lg:flex lg:flex-col lg:items-end">-->
+  <!--  {{ if fileExists "layouts/partials/adsense.html" }}-->
+  <!--  <div class="dream-adsense">-->
+  <!--    {{ partialCached "adsense.html" . }}-->
+  <!--  </div>-->
+  <!--  {{ end }}-->
+  <!---->
+  <!--  {{ if site.Params.showTableOfContents }}-->
+  <!--    {{ .TableOfContents }}-->
+  <!--  {{ end }}-->
+  <!--</div>-->
+  <!---->
+  <div class="hidden lg:block"></div>
 </div>
 {{ end }}
 
